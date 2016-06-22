@@ -4,11 +4,30 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var request = require('superagent');
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var dotenv = require('dotenv')
 
 var app = express();
+
+//eatme app
+
+request
+   .get('http://food2fork.com/api/search?key=' +
+      process.env.FOOD_2_FORK_KEY +
+      '&q=beef')
+   .end(function(err, res){
+      if (err) {
+        console.error(err)
+        return
+      }
+    console.log('result', typeof res.text)
+    var recipes =JSON.parse(res.text)
+    console.log('recipes', recipes.recipes[1])
+
+   });
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -56,5 +75,6 @@ app.use(function(err, req, res, next) {
   });
 });
 
+console.log('mikes eatme app')
 
 module.exports = app;
