@@ -1,7 +1,7 @@
 {
   "name": "eatme-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "recipe app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,10 +11,13 @@
     "url": "git+https://github.com/MichaelDong32/eatme-project.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Mike Dong",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MichaelDong32/eatme-project/issues"
   },
-  "homepage": "https://github.com/MichaelDong32/eatme-project#readme"
+  "homepage": "https://github.com/MichaelDong32/eatme-project#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
