@@ -14,9 +14,7 @@ var app = express();
 //eatme app
 
 request
-   .get('http://food2fork.com/api/search?key=' +
-      process.env.FOOD_2_FORK_KEY +
-      '&q=beef')
+   .get('http://food2fork.com/api/search?key=e786b3d4669b2bbe700a070fa90f15f8&q=beans')
    .end(function(err, res){
       if (err) {
         console.error(err)
@@ -24,7 +22,9 @@ request
       }
     console.log('result', typeof res.text)
     var recipes =JSON.parse(res.text)
+    console.log('this is an', typeof recipes)
     console.log('recipes', recipes.recipes[1])
+    return recipes.recipes[1]
 
    });
 
