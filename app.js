@@ -8,28 +8,12 @@ var request = require('superagent');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var dotenv = require('dotenv')
+var handlebars = require('hbs')
 
 var app = express();
+app.get('/about', function(req, res){});
 
-//eatme app
-
-request
-   .get('http://food2fork.com/api/search?key=e786b3d4669b2bbe700a070fa90f15f8&q=beans')
-   .end(function(err, res){
-      if (err) {
-        console.error(err)
-        return
-      }
-    console.log('result', typeof res.text)
-    var recipes =JSON.parse(res.text)
-    console.log('this is an', typeof recipes)
-    console.log('recipes', recipes.recipes[1])
-    return recipes.recipes[1]
-
-   });
-
-
-// view engine setup
+//view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
@@ -39,10 +23,13 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use('/', routes);
 app.use('/users', users);
+
+//eatme app
+app.use(express.static(path.join(__dirname, 'public')));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -76,5 +63,4 @@ app.use(function(err, req, res, next) {
 });
 
 console.log('mikes eatme app')
-
 module.exports = app;
