@@ -12,11 +12,15 @@ router.get('/home', function(req, res, next) {
   res.render('index', { name: 'EATME' });
 });
 
-router.post('/', function(req, res){
-  console.log('got here------------')
+router.post('/', function(req, res, err){
+  // if (err) {
+  //   res.redirect('/home')
+  //   // return
+  // } else {
   console.log(req.body)
   res.redirect('/results/'+req.body.ingredient)
-})
+  // }
+});
 
 
 router.get('/results/:q', function(req, res, next) {
