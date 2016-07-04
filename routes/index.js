@@ -12,9 +12,16 @@ router.get('/home', function(req, res, next) {
   res.render('index', { name: 'EATME' });
 });
 
-router.get('/results', function(req, res) {
+router.post('/', function(req, res){
+  console.log('got here------------')
+  console.log(req.body)
+  res.redirect('/results/'+req.body.ingredient)
+})
+
+
+router.get('/results/:q', function(req, res, next) {
   request
-     .get('http://food2fork.com/api/search?key=e786b3d4669b2bbe700a070fa90f15f8&q=beans')
+     .get('http://food2fork.com/api/search?key=e786b3d4669b2bbe700a070fa90f15f8&q='+ req.params.q)
      .end(function(err, result){
         if (err) {
           console.error(err)
@@ -22,7 +29,8 @@ router.get('/results', function(req, res) {
         } else {
           // console.log(JSON.parse(result.text))
           var recipes = JSON.parse(result.text)
-          res.render('results',recipes.recipes[2]);
+          var i = Math.ceil(Math.random()*10)
+          res.render('results',recipes.recipes[i]);
           return
       // console.log(typeof recipes, recipes)
       // console.log('this is an', typeof recipes)
