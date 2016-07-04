@@ -1,6 +1,33 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
+  margin:auto;
+
+}
+.heading {
+  background-color: red;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.intro {
+  margin-top: 70px;
+  margin-bottom: 50px;
+}
+
+}
+.title {
+  width: 70%;
+  text-align: center;
+  line-height: 200%;
+
 }
 
 a {
