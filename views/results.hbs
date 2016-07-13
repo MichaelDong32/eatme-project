@@ -1,11 +1,9 @@
-<h1 class = heading>{{name}}</h1>
-  <div class="intro">
-    <p class = title>Hows that for a suggestion?</p>
+<h3>{{title}}</h3><br>
+  <img src="{{image_url}}" alt = "Sorry but we couldn't find a recipe. Let's try something else."><br>
+  <p class='from'>Recipe from {{publisher}}</p><br>
+	  <a href="{{source_url}}">get the recipe</a><br>
+  <div class ='buttons'>
+	  <input type="button" value="new recipe" onClick="window.location.reload()">
+	  <a href='/'><button type='button'>New ingredients</button></a>
   </div>
-    <h3>{{title}}</h3><br>
-      <img src="{{image_url}}" alt = "yummy"><br>
-      <p>Recipe from {{publisher}}</p><br>
-      <a href="{{source_url}}">get the recipe</a><br>
-      <input type="button" value="new recipe" onClick="window.location.reload()">
-
-      <p> powered by Food2Fork</p>
+  <p class='footer'> powered by Food2Fork</p>

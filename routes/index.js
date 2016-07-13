@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/home', function(req, res, next) {
-  res.render('index', { name: 'EATME' });
+  res.render('index', { name: 'eatMe' });
 });
 
 router.post('/', function(req, res, err){
@@ -18,7 +18,7 @@ router.post('/', function(req, res, err){
   //   // return
   // } else {
   console.log(req.body)
-  res.redirect('/results/'+req.body.ingredient)
+  res.redirect('/results/'+req.body.ingredients);
   // }
 });
 
