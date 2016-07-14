@@ -13,15 +13,18 @@ router.get('/home', function(req, res, next) {
 });
 
 router.post('/', function(req, res, err){
-  // if (err) {
-  //   res.redirect('/home')
-  //   // return
-  // } else {
+  if (!req.body.ingredients) {
+    res.redirect('/noresult')
+    // return
+  } else {
   console.log(req.body)
   res.redirect('/results/'+req.body.ingredients);
-  // }
+  }
 });
 
+router.get('/noresult', function(req, res, next){
+  res.render('noresult', { name: 'eatMe' })
+})
 
 router.get('/results/:q', function(req, res, next) {
   request
